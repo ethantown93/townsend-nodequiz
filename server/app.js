@@ -16,6 +16,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
+const api = require('./routes/api');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended': true}));
@@ -26,12 +27,7 @@ app.use('/', express.static(path.join(__dirname, '../dist/nodequiz')));
 
 app.use('/api', api);
 
-
-
 app.use(cors());
-
-const api = require('./routes/api');
-
 
 // Global variables
 const serverPort = process.env.PORT || 3000;

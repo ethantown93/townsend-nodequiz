@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- /*\r\n============================================\r\n; Author: Ethan Townsend\r\n; Date:   8/12/2019\r\n; Description: web-425\r\n;===========================================\r\n*/  -->\r\n\r\n<div class='carousel-container'>\r\n    <mat-card class='presentation-card'>\r\n\r\n        <carousel class='carousel' [interval]=\"false\">\r\n            <slide *ngFor=\"let slide of presentation; let index=index\">\r\n            <img [src]=\"slide.name\" alt=\"image slide\" style=\"display: block; width: 100%;\">\r\n            </slide>\r\n        </carousel>\r\n    </mat-card>\r\n<br/>\r\n<a routerLink ='/quiz/{{ presentationId }}'><button mat-raised-button color='accent' ><strong>Take the Quiz</strong></button></a>\r\n</div>\r\n\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- /*\r\n============================================\r\n; Author: Ethan Townsend\r\n; Date:   8/12/2019\r\n; Description: web-425\r\n;===========================================\r\n*/  -->\r\n\r\n<div class='carousel-container'>\r\n    <mat-card class='presentation-card'>\r\n        <carousel class='carousel' [interval]=\"false\">\r\n            <slide *ngFor=\"let slide of presentation; let index=index\">\r\n            <img [src]=\"slide.name\" alt=\"image slide\" style=\"display: block; width: 100%;\">\r\n            </slide>\r\n        </carousel>\r\n    </mat-card>\r\n<br/>\r\n<a routerLink ='/quiz/{{ presentationId }}'><button mat-raised-button color='accent' ><strong>Take the Quiz</strong></button></a>\r\n</div>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -1728,7 +1728,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\EETfi\bu-webdev\nodequiz\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\EETfi\bu-webdev\townsend-nodequiz\src\main.ts */"./src/main.ts");
 
 
 /***/ })
