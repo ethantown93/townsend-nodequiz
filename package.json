@@ -2,6 +2,7 @@
   "name": "nodequiz",
   "version": "0.0.0",
   "scripts": {
+    "prestart": "next build",
     "ng": "ng",
     "start": "node server/app.js",
     "localhost": "ng build && node ./server/app.js",
