@@ -74,8 +74,9 @@ import { CumulativeSummaryComponent } from './components/cumulative-summary/cumu
     CarouselModule,
     MatRadioModule
   ],
-  providers: [AuthService, AuthGuard,
-  {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
+  providers: [AuthService, AuthGuard
+  // {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+],
   bootstrap: [AppComponent],
   entryComponents: [ErrorHandlerComponent, SummaryComponent]
 })
