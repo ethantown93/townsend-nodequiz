@@ -650,7 +650,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material__WEBPACK_IMPORTED_MODULE_15__["MatRadioModule"]
         ],
         providers: [_auth_service__WEBPACK_IMPORTED_MODULE_19__["AuthService"], _auth_guard__WEBPACK_IMPORTED_MODULE_20__["AuthGuard"],
-            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HTTP_INTERCEPTORS"], useClass: _error_interceptor__WEBPACK_IMPORTED_MODULE_21__["ErrorInterceptor"], multi: true }],
+            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HTTP_INTERCEPTORS"], useClass: _error_interceptor__WEBPACK_IMPORTED_MODULE_21__["ErrorInterceptor"], multi: true }
+        ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
         entryComponents: [_components_error_handler_error_handler_component__WEBPACK_IMPORTED_MODULE_22__["ErrorHandlerComponent"], _components_summary_summary_component__WEBPACK_IMPORTED_MODULE_26__["SummaryComponent"]]
     })
