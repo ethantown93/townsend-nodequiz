@@ -13,11 +13,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
-const cors = require('cors');
-
 const app = express();
-
-app.use(cors());
 
 const api = require('./routes/api');
 
