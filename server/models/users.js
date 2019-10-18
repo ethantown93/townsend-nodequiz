@@ -10,7 +10,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
-    id: { type: String, required: true},
+    id: { type: String, required: false},
     firstName: { type: String, required: false },
     lastName: { type: String, required: false },
 }, { collection: 'users'});

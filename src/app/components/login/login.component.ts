@@ -27,12 +27,14 @@ import { AuthService } from '../../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginUserData = { };
+  loginUserData = {id: ''};
+  loginData = this.loginUserData
 
   constructor(private auth: AuthService, private router: Router, private http: HttpClient) { }
 
   loginUser() { 
-    this.auth.login(this.loginUserData).subscribe(
+    console.log(this.loginData)
+    this.auth.login(this.loginData).subscribe(
       res => {
         console.log(res)
         localStorage.setItem('token', res.token),

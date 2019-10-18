@@ -1133,9 +1133,11 @@ let LoginComponent = class LoginComponent {
         this.router = router;
         this.http = http;
         this.loginUserData = { id: '' };
+        this.loginData = this.loginUserData;
     }
     loginUser() {
-        this.auth.login(this.loginUserData).subscribe(res => {
+        console.log(this.loginData);
+        this.auth.login(this.loginData).subscribe(res => {
             console.log(res);
             localStorage.setItem('token', res.token),
                 localStorage.setItem('user', res.payload.subject);
