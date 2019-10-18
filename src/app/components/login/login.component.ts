@@ -27,7 +27,7 @@ import { AuthService } from '../../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginUserData = { id: ''};
+  loginUserData = { };
 
   constructor(private auth: AuthService, private router: Router, private http: HttpClient) { }
 
