@@ -19,10 +19,10 @@ import { catchError } from 'rxjs/operators';
 export class AuthService {
 
 
-  private loginUrl = 'http://localhost:3000/api/login'
-  private quizUrl = 'http://localhost:3000/api/quiz/'
-  private resultsUrl = 'http://localhost:3000/api/post'
-  private summaryUrl = 'http://localhost:3000/api/summary/'
+  private loginUrl = '/api/login'
+  private quizUrl = '/api/quiz/'
+  private resultsUrl = '/api/post'
+  private summaryUrl = '/api/summary/'
 
   constructor(private http: HttpClient, private router : Router) { }
 

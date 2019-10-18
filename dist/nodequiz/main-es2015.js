@@ -744,10 +744,10 @@ let AuthService = class AuthService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.loginUrl = 'http://localhost:3000/api/login';
-        this.quizUrl = 'http://localhost:3000/api/quiz/';
-        this.resultsUrl = 'http://localhost:3000/api/post';
-        this.summaryUrl = 'http://localhost:3000/api/summary/';
+        this.loginUrl = '/api/login';
+        this.quizUrl = '/api/quiz/';
+        this.resultsUrl = '/api/post';
+        this.summaryUrl = '/api/summary/';
     }
     postQuiz(data) {
         console.log(data + ' from servie');
