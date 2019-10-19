@@ -11,8 +11,10 @@
     </mat-dialog-content>
 
     <mat-dialog-actions>
-        <p>You scored a: {{ score }}% </p>
+        
+        <p>You scored a: <span [ngClass]="{'failing': score <= 40, 'marginal': score >= 41 && score <= 70, 'passing': score >= 71}"><strong>{{ score }}%</strong></span> </p>
         <br/>
+        <p>{{ message }}</p>
         <button mat-raised-button (click)='onClose()' color='primary'>Confirm</button>
     </mat-dialog-actions>
 </div>

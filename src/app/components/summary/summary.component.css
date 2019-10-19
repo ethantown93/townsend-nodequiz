@@ -20,4 +20,17 @@ button {
 
  p {
     margin: auto;
+    width: 100%;
+}
+
+.passing {
+    color: green;
+}
+
+.failing {
+    color: red;
+}
+
+.marginal {
+    color: orange;
 }

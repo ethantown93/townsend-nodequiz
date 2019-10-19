@@ -20,9 +20,10 @@ export class CumulativeSummaryComponent implements OnInit {
 
   employeeId: any;
   results: any= {};
-allResults: any = {};
+  allResults: any = {};
 
   constructor(private auth: AuthService, private http: HttpClient) {
+
   }
 
   ngOnInit() {
@@ -43,11 +44,9 @@ allResults: any = {};
       } else {
         console.log('error')
       }
-      console.log(this.allResults);
-      console.log(this.allResults.employeeId)
+
     })
 
- 
   }
 
   getUser() {

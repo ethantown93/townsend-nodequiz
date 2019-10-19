@@ -40,7 +40,7 @@
                 <td>{{ results.employeeId }}</td>
                 <td>{{ results.quizName }}</td>
                 <td>{{ results.quizId }}</td>
-                <td>{{ results.score }}%</td>
+                <td [ngClass]="{'failing': results.score <= 40, 'marginal': results.score >= 41 && results.score <= 70, 'passing': results.score >= 71}">{{ results.score }}%</td>
             </tr>
         </tbody>
     </table>

@@ -20,16 +20,20 @@ export class SummaryComponent implements OnInit {
 
   employeeId: any;
   score: any;
-  summaryScore: any;
-  message: any;
+  message: any = '';
 
   constructor(private router: Router, public dialogRef: MatDialogRef<SummaryComponent>, @Inject(MAT_DIALOG_DATA) public data:any) { 
-
 
   }
 
   getScore() {
     this.score = localStorage.getItem('score');
+    if(this.score <= 40) {
+      this.message = 'Better luck next time!'
+    } else if (this.score >= 41 && this.score <= 70) {
+      this.message = 'Not bad, but I think you can do better!'
+    } else (this.message ='Great Job!')
+
   }
 
   onClose() {
@@ -38,6 +42,11 @@ export class SummaryComponent implements OnInit {
     this.router.navigate(['/cumulative-summary'])
   }
 
+  scoreStyle(){
+    return {
+      'test': true,
+    }
+ }
   ngOnInit() {
     this.getScore();
   }
