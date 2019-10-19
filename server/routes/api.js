@@ -60,6 +60,19 @@ router.post('/users', (req, res, next) => {
         console.log(results);
     })
   });
+
+    // find all quiz results
+    router.get('/cumulative-results', (req, res, next) => {
+      QuizResultsData.find( (err, results) => {
+        if(err) {
+          console.log('error')
+        } else {
+          res.json({results})
+        }
+      });
+
+    });
+
   // api retrieving specific user ID
 router.get('/users/:id', (req, res, next) => {
     User.findOne({'id': req.params.id}, (err, users) => {
@@ -95,6 +108,7 @@ router.get('/users/:id', (req, res, next) => {
         console.log(quiz);
     })
   });
+
   
 // login api
   router.post('/login', (req, res, next) => {
@@ -129,9 +143,5 @@ router.get('/users/:id', (req, res, next) => {
       }
     })
   })
-  
-
-
-
 
 module.exports = router;

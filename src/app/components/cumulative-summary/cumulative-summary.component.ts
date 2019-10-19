@@ -9,6 +9,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-cumulative-summary',
   templateUrl: './cumulative-summary.component.html',
@@ -18,10 +20,9 @@ export class CumulativeSummaryComponent implements OnInit {
 
   employeeId: any;
   results: any= {};
+allResults: any = {};
 
-  constructor(private auth: AuthService) { 
-
-
+  constructor(private auth: AuthService, private http: HttpClient) {
   }
 
   ngOnInit() {
@@ -33,7 +34,20 @@ export class CumulativeSummaryComponent implements OnInit {
         this.results = res;
         console.log(this.results)
       }
+    });
+
+    this.auth.getAllResults().subscribe( res => {
+      console.log(res);
+      if(res){
+        this.allResults = res;
+      } else {
+        console.log('error')
+      }
+      console.log(this.allResults);
+      console.log(this.allResults.employeeId)
     })
+
+ 
   }
 
   getUser() {

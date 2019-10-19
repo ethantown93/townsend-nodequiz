@@ -6,12 +6,12 @@
 ;===========================================
 */  -->
 
-<h2>Your Cumulative Quiz Scores:</h2>
+<h2>Your Quiz Scores:</h2>
 
 <mat-card class='summary-card'>
     <div *ngFor='let result of results.results'>
         <mat-accordion multi='true'>
-            <mat-expansion-panel >
+            <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <h4>{{result.quizName}}</h4>
                 </mat-expansion-panel-header>
@@ -20,4 +20,28 @@
             </mat-expansion-panel>
         </mat-accordion>
     </div>
+</mat-card>
+
+<h2>All Employee Quiz Scores</h2>
+
+<mat-card class='table-card'> 
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Employee ID</th>
+                <th scope="col">Quiz Name</th>
+                <th scope="col">Quiz ID</th>
+                <th scope="col">Score</th>
+            </tr>
+        </thead>
+        <tbody *ngFor = 'let results of allResults.results'>
+            <tr>
+                <td>{{ results.employeeId }}</td>
+                <td>{{ results.quizName }}</td>
+                <td>{{ results.quizId }}</td>
+                <td>{{ results.score }}%</td>
+            </tr>
+        </tbody>
+    </table>
 </mat-card>

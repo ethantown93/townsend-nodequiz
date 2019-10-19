@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- /*\n============================================\n; Author: Ethan Townsend\n; Date:   8/12/2019\n; Description: web-425\n;===========================================\n*/  -->\n\n<h2>Your Cumulative Quiz Scores:</h2>\n\n<mat-card class='summary-card'>\n    <div *ngFor='let result of results.results'>\n        <mat-accordion multi='true'>\n            <mat-expansion-panel >\n                <mat-expansion-panel-header>\n                    <h4>{{result.quizName}}</h4>\n                </mat-expansion-panel-header>\n                <p><strong>Employee ID:</strong> {{ result.employeeId }}</p>\n                <p><strong>Score:</strong> {{ result.score }}%</p>\n            </mat-expansion-panel>\n        </mat-accordion>\n    </div>\n</mat-card>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- /*\n============================================\n; Author: Ethan Townsend\n; Date:   8/12/2019\n; Description: web-425\n;===========================================\n*/  -->\n\n<h2>Your Quiz Scores:</h2>\n\n<mat-card class='summary-card'>\n    <div *ngFor='let result of results.results'>\n        <mat-accordion multi='true'>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <h4>{{result.quizName}}</h4>\n                </mat-expansion-panel-header>\n                <p><strong>Employee ID:</strong> {{ result.employeeId }}</p>\n                <p><strong>Score:</strong> {{ result.score }}%</p>\n            </mat-expansion-panel>\n        </mat-accordion>\n    </div>\n</mat-card>\n\n<h2>All Employee Quiz Scores</h2>\n\n<mat-card class='table-card'> \n\n    <table class=\"table table-hover\">\n        <thead>\n            <tr>\n                <th scope=\"col\">Employee ID</th>\n                <th scope=\"col\">Quiz Name</th>\n                <th scope=\"col\">Quiz ID</th>\n                <th scope=\"col\">Score</th>\n            </tr>\n        </thead>\n        <tbody *ngFor = 'let results of allResults.results'>\n            <tr>\n                <td>{{ results.employeeId }}</td>\n                <td>{{ results.quizName }}</td>\n                <td>{{ results.quizId }}</td>\n                <td>{{ results.score }}%</td>\n            </tr>\n        </tbody>\n    </table>\n</mat-card>");
 
 /***/ }),
 
@@ -748,6 +748,10 @@ let AuthService = class AuthService {
         this.quizUrl = '/api/quiz/';
         this.resultsUrl = '/api/post';
         this.summaryUrl = '/api/summary/';
+        this.allResults = '/api/cumulative-results';
+    }
+    getAllResults() {
+        return this.http.get(this.allResults);
     }
     postQuiz(data) {
         console.log(data + ' from servie');
@@ -798,7 +802,7 @@ AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/*\r\n============================================\r\n; Author: Ethan Townsend\r\n; Date:   8/12/2019\r\n; Description: web-425\r\n;===========================================\r\n*/ \r\n\r\nh2 {\r\n    text-align: center;\r\n    margin-top: 40px;\r\n} \r\n\r\n.summary-card {\r\n    box-shadow: 2px 2px 10px 10px rgb(158, 158, 158);\r\n    width: 75%;\r\n    margin: auto;\r\n    margin-top: 40px;\r\n} \r\n\r\nmat-expansion-panel {\r\n    width: 90%;\r\n    margin: auto;\r\n    background-color: rgba(207, 207, 207, 0.616);\r\n} \r\n\r\np, h4 {\r\n    margin-top: 5px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jdW11bGF0aXZlLXN1bW1hcnkvY3VtdWxhdGl2ZS1zdW1tYXJ5LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztDQU1DOztBQUVEO0lBQ0ksa0JBQWtCO0lBQ2xCLGdCQUFnQjtBQUNwQjs7QUFFQTtJQUNJLGdEQUFnRDtJQUNoRCxVQUFVO0lBQ1YsWUFBWTtJQUNaLGdCQUFnQjtBQUNwQjs7QUFFQTtJQUNJLFVBQVU7SUFDVixZQUFZO0lBQ1osNENBQTRDO0FBQ2hEOztBQUVBO0lBQ0ksZUFBZTtBQUNuQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY3VtdWxhdGl2ZS1zdW1tYXJ5L2N1bXVsYXRpdmUtc3VtbWFyeS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cclxuOyBBdXRob3I6IEV0aGFuIFRvd25zZW5kXHJcbjsgRGF0ZTogICA4LzEyLzIwMTlcclxuOyBEZXNjcmlwdGlvbjogd2ViLTQyNVxyXG47PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxyXG4qLyBcclxuXHJcbmgyIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIG1hcmdpbi10b3A6IDQwcHg7XHJcbn1cclxuXHJcbi5zdW1tYXJ5LWNhcmQge1xyXG4gICAgYm94LXNoYWRvdzogMnB4IDJweCAxMHB4IDEwcHggcmdiKDE1OCwgMTU4LCAxNTgpO1xyXG4gICAgd2lkdGg6IDc1JTtcclxuICAgIG1hcmdpbjogYXV0bztcclxuICAgIG1hcmdpbi10b3A6IDQwcHg7XHJcbn1cclxuXHJcbm1hdC1leHBhbnNpb24tcGFuZWwge1xyXG4gICAgd2lkdGg6IDkwJTtcclxuICAgIG1hcmdpbjogYXV0bztcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjA3LCAyMDcsIDIwNywgMC42MTYpO1xyXG59XHJcblxyXG5wLCBoNCB7XHJcbiAgICBtYXJnaW4tdG9wOiA1cHg7XHJcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("/*\r\n============================================\r\n; Author: Ethan Townsend\r\n; Date:   8/12/2019\r\n; Description: web-425\r\n;===========================================\r\n*/ \r\n\r\nh2 {\r\n    text-align: center;\r\n    margin-top: 40px;\r\n} \r\n\r\n.summary-card{\r\n    box-shadow: 2px 2px 10px 10px rgb(158, 158, 158);\r\n    width: 75%;\r\n    margin: auto;\r\n    margin-top: 40px;\r\n} \r\n\r\n.table-card {\r\n    box-shadow: 2px 2px 10px 10px rgb(158, 158, 158);\r\n    width: 75%;\r\n    margin: auto;\r\n    margin-top: 40px;\r\n    margin-bottom: 40px;\r\n} \r\n\r\nmat-expansion-panel {\r\n    width: 90%;\r\n    margin: auto;\r\n    background-color: rgba(207, 207, 207, 0.616);\r\n} \r\n\r\np, h4 {\r\n    margin-top: 5px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jdW11bGF0aXZlLXN1bW1hcnkvY3VtdWxhdGl2ZS1zdW1tYXJ5LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztDQU1DOztBQUVEO0lBQ0ksa0JBQWtCO0lBQ2xCLGdCQUFnQjtBQUNwQjs7QUFFQTtJQUNJLGdEQUFnRDtJQUNoRCxVQUFVO0lBQ1YsWUFBWTtJQUNaLGdCQUFnQjtBQUNwQjs7QUFFQTtJQUNJLGdEQUFnRDtJQUNoRCxVQUFVO0lBQ1YsWUFBWTtJQUNaLGdCQUFnQjtJQUNoQixtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxVQUFVO0lBQ1YsWUFBWTtJQUNaLDRDQUE0QztBQUNoRDs7QUFFQTtJQUNJLGVBQWU7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2N1bXVsYXRpdmUtc3VtbWFyeS9jdW11bGF0aXZlLXN1bW1hcnkuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qXHJcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XHJcbjsgQXV0aG9yOiBFdGhhbiBUb3duc2VuZFxyXG47IERhdGU6ICAgOC8xMi8yMDE5XHJcbjsgRGVzY3JpcHRpb246IHdlYi00MjVcclxuOz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cclxuKi8gXHJcblxyXG5oMiB7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBtYXJnaW4tdG9wOiA0MHB4O1xyXG59XHJcblxyXG4uc3VtbWFyeS1jYXJke1xyXG4gICAgYm94LXNoYWRvdzogMnB4IDJweCAxMHB4IDEwcHggcmdiKDE1OCwgMTU4LCAxNTgpO1xyXG4gICAgd2lkdGg6IDc1JTtcclxuICAgIG1hcmdpbjogYXV0bztcclxuICAgIG1hcmdpbi10b3A6IDQwcHg7XHJcbn1cclxuXHJcbi50YWJsZS1jYXJkIHtcclxuICAgIGJveC1zaGFkb3c6IDJweCAycHggMTBweCAxMHB4IHJnYigxNTgsIDE1OCwgMTU4KTtcclxuICAgIHdpZHRoOiA3NSU7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgICBtYXJnaW4tdG9wOiA0MHB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogNDBweDtcclxufVxyXG5cclxubWF0LWV4cGFuc2lvbi1wYW5lbCB7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMDcsIDIwNywgMjA3LCAwLjYxNik7XHJcbn1cclxuXHJcbnAsIGg0IHtcclxuICAgIG1hcmdpbi10b3A6IDVweDtcclxufSJdfQ== */");
 
 /***/ }),
 
@@ -815,6 +819,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../auth.service */ "./src/app/auth.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm2015/http.js");
 /*
 ============================================
 ; Author: Ethan Townsend
@@ -825,10 +830,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let CumulativeSummaryComponent = class CumulativeSummaryComponent {
-    constructor(auth) {
+    constructor(auth, http) {
         this.auth = auth;
+        this.http = http;
         this.results = {};
+        this.allResults = {};
     }
     ngOnInit() {
         this.getUser();
@@ -838,6 +846,17 @@ let CumulativeSummaryComponent = class CumulativeSummaryComponent {
                 console.log(this.results);
             }
         });
+        this.auth.getAllResults().subscribe(res => {
+            console.log(res);
+            if (res) {
+                this.allResults = res;
+            }
+            else {
+                console.log('error');
+            }
+            console.log(this.allResults);
+            console.log(this.allResults.employeeId);
+        });
     }
     getUser() {
         this.employeeId = localStorage.getItem('user');
@@ -845,7 +864,8 @@ let CumulativeSummaryComponent = class CumulativeSummaryComponent {
     }
 };
 CumulativeSummaryComponent.ctorParameters = () => [
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
 ];
 CumulativeSummaryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

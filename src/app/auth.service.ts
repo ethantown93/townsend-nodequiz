@@ -23,9 +23,15 @@ export class AuthService {
   private quizUrl = '/api/quiz/'
   private resultsUrl = '/api/post'
   private summaryUrl = '/api/summary/'
+  private allResults = '/api/cumulative-results'
 
   constructor(private http: HttpClient, private router : Router) { }
 
+  getAllResults() {
+    return this.http.get<any>(this.allResults,)
+    
+  }
+ 
   postQuiz(data) {
     
     console.log(data + ' from servie');
